@@ -1,0 +1,1526 @@
+definitions:
+  models.AllYoutube:
+    properties:
+      channelID:
+        type: string
+      channelTitle:
+        type: string
+      description:
+        type: string
+      isDisplay:
+        type: integer
+      publishedAt:
+        type: string
+      query:
+        type: string
+      thumbnailURL:
+        type: string
+      title:
+        type: string
+      videoID:
+        type: string
+    type: object
+  models.Blog:
+    properties:
+      bloggerlink:
+        type: string
+      bloggername:
+        type: string
+      description:
+        type: string
+      isDisplay:
+        type: integer
+      itemCode:
+        type: string
+      link:
+        type: string
+      postdate:
+        type: string
+      priority:
+        type: integer
+      query:
+        type: string
+      title:
+        type: string
+    type: object
+  models.Category:
+    properties:
+      cateCode:
+        type: integer
+      cateName:
+        type: string
+    type: object
+  models.Graph:
+    properties:
+      areaName:
+        type: string
+      gradeCode:
+        type: string
+      graphLine:
+        items:
+          $ref: '#/definitions/models.GraphLine'
+        type: array
+      itemCode:
+        type: integer
+      itemKindCode:
+        type: string
+      lastShipDate:
+        type: string
+      rangeLabel:
+        items:
+          type: string
+        type: array
+      rangeMax:
+        type: integer
+      rangeMin:
+        type: integer
+      rangeStep:
+        type: integer
+      rangeType:
+        type: string
+    type: object
+  models.GraphData:
+    properties:
+      x:
+        type: string
+      "y":
+        type: number
+    type: object
+  models.GraphLine:
+    properties:
+      areaName:
+        type: string
+      graphData:
+        items:
+          $ref: '#/definitions/models.GraphData'
+        type: array
+      marketName:
+        type: string
+    type: object
+  models.Item:
+    properties:
+      itemCode:
+        type: integer
+      itemName:
+        type: string
+    type: object
+  models.ItemGrade:
+    properties:
+      gradeCode:
+        type: string
+      gradeName:
+        type: string
+      gradeOrder:
+        type: integer
+      gradeType:
+        type: integer
+      shipAmt:
+        type: number
+      shipUnit:
+        type: string
+    type: object
+  models.ItemKind:
+    properties:
+      itemCode:
+        type: integer
+      itemKindCode:
+        type: string
+      itemKindName:
+        type: string
+      itemName:
+        type: string
+    type: object
+  models.MonthInfo:
+    properties:
+      areaName:
+        type: string
+      baseMonth:
+        type: string
+      gradeCode:
+        type: string
+      itemCode:
+        type: integer
+      itemKindCode:
+        type: string
+      marketName:
+        type: string
+      monthPriceList:
+        items:
+          $ref: '#/definitions/models.MonthPrice'
+        type: array
+      shipMonth:
+        type: integer
+      shipYear:
+        type: integer
+    type: object
+  models.MonthPrice:
+    properties:
+      avgPrice:
+        type: number
+      baseMonth:
+        type: string
+      maxPrice:
+        type: integer
+      maxShipDate:
+        type: string
+      minPrice:
+        type: integer
+      minShipDate:
+        type: string
+      priceCount:
+        type: integer
+      sumPrice:
+        type: integer
+    type: object
+  models.News:
+    properties:
+      description:
+        type: string
+      isDisplay:
+        type: integer
+      itemCode:
+        type: string
+      link:
+        type: string
+      press:
+        type: string
+      priority:
+        type: integer
+      pubDate:
+        type: string
+      query:
+        type: string
+      title:
+        type: string
+    type: object
+  models.RecentPrice:
+    properties:
+      areaName:
+        type: string
+      gradeCode:
+        type: string
+      itemCode:
+        type: integer
+      itemKindCode:
+        type: string
+      lastPrice:
+        type: integer
+      lastShipDate:
+        type: string
+      marketName:
+        type: string
+      stat7days:
+        $ref: '#/definitions/models.StatPrice'
+        type: object
+      stat30days:
+        $ref: '#/definitions/models.StatPrice'
+        type: object
+    type: object
+  models.StatPrice:
+    properties:
+      avgPrice:
+        type: number
+      cntPrice:
+        type: integer
+      days:
+        type: integer
+      maxPrice:
+        type: integer
+      minPrice:
+        type: integer
+      sumPrice:
+        type: integer
+    type: object
+  models.Youtube:
+    properties:
+      channelID:
+        type: string
+      channelTitle:
+        type: string
+      description:
+        type: string
+      isDisplay:
+        type: integer
+      itemCode:
+        type: string
+      publishedAt:
+        type: string
+      query:
+        type: string
+      thumbnailURL:
+        type: string
+      title:
+        type: string
+      videoID:
+        type: string
+    type: object
+  v2.AdjAuctionQuantityBarGraph:
+    properties:
+      graphBar:
+        items:
+          $ref: '#/definitions/v2.adjAuctionQuantityGraphBar'
+        type: array
+      rangeLabel:
+        items:
+          type: string
+        type: array
+      stdItemCode:
+        type: string
+    type: object
+  v2.AdjAuctionQuantityRecentTop3:
+    properties:
+      accQy:
+        type: string
+      auctionDate:
+        type: string
+      stdItemCode:
+        type: string
+      stdItemName:
+        type: string
+    type: object
+  v2.Blog:
+    properties:
+      bloggerlink:
+        type: string
+      bloggername:
+        type: string
+      description:
+        type: string
+      isDisplay:
+        type: integer
+      itemCode:
+        type: string
+      link:
+        type: string
+      postdate:
+        type: string
+      priority:
+        type: integer
+      query:
+        type: string
+      title:
+        type: string
+    type: object
+  v2.ItemCodeMap:
+    properties:
+      examinItemCode:
+        type: string
+      hskPrdlstCode:
+        type: string
+      stdItemCode:
+        type: string
+    type: object
+  v2.News:
+    properties:
+      description:
+        type: string
+      isDisplay:
+        type: integer
+      itemCode:
+        type: string
+      link:
+        type: string
+      press:
+        type: string
+      priority:
+        type: integer
+      pubDate:
+        type: string
+      query:
+        type: string
+      title:
+        type: string
+    type: object
+  v2.Question:
+    properties:
+      email:
+        type: string
+      name:
+        type: string
+      question:
+        type: string
+      regiDate:
+        type: string
+    type: object
+  v2.RetailPrice:
+    properties:
+      examinDate:
+        type: string
+      examinGradeCode:
+        type: string
+      examinGradeName:
+        type: string
+      examinItemCode:
+        type: string
+      examinItemName:
+        type: string
+      examinSpeciesCode:
+        type: string
+      examinSpeciesName:
+        type: string
+      examinUnit:
+        type: string
+      examinUnitName:
+        type: string
+      maxPrice:
+        type: integer
+      minPrice:
+        type: integer
+    type: object
+  v2.RetailPriceGraph:
+    properties:
+      graphLine:
+        items:
+          $ref: '#/definitions/v2.retailPriceGraphLine'
+        type: array
+      rangeLabel:
+        items:
+          type: string
+        type: array
+      stdItemCode:
+        type: string
+    type: object
+  v2.StdItemKeword:
+    properties:
+      itemCode:
+        type: string
+      keyword:
+        type: string
+    type: object
+  v2.TradeInfoGraph:
+    properties:
+      graphLine:
+        items:
+          $ref: '#/definitions/v2.tradeInfoGraphLine'
+        type: array
+      rangeLabel:
+        items:
+          type: string
+        type: array
+      stdItemCode:
+        type: string
+    type: object
+  v2.TradeRecentTop3:
+    properties:
+      baseDate:
+        type: string
+      convertedWeight:
+        type: string
+      hskPrdlstCode:
+        type: string
+      stdItemCode:
+        type: string
+      stdItemName:
+        type: string
+    type: object
+  v2.WholePrice:
+    properties:
+      examinDate:
+        type: string
+      examinGradeCode:
+        type: string
+      examinGradeName:
+        type: string
+      examinItemCode:
+        type: string
+      examinItemName:
+        type: string
+      examinSpeciesCode:
+        type: string
+      examinSpeciesName:
+        type: string
+      examinUnit:
+        type: string
+      examinUnitName:
+        type: string
+      price:
+        type: integer
+    type: object
+  v2.WholePriceGraph:
+    properties:
+      graphLine:
+        items:
+          $ref: '#/definitions/v2.wholePriceGraphLine'
+        type: array
+      rangeLabel:
+        items:
+          type: string
+        type: array
+      stdItemCode:
+        type: string
+    type: object
+  v2.Youtube:
+    properties:
+      channelID:
+        type: string
+      channelTitle:
+        type: string
+      description:
+        type: string
+      isDisplay:
+        type: integer
+      itemCode:
+        type: string
+      publishedAt:
+        type: string
+      query:
+        type: string
+      thumbnailURL:
+        type: string
+      title:
+        type: string
+      videoID:
+        type: string
+    type: object
+  v2.adjAuctionQuantityGraphBar:
+    properties:
+      graphData:
+        items:
+          type: string
+        type: array
+      stdItemName:
+        type: string
+      stdSpeciesName:
+        type: string
+    type: object
+  v2.retailPriceGraphData:
+    properties:
+      x:
+        type: string
+      "y":
+        type: integer
+    type: object
+  v2.retailPriceGraphLine:
+    properties:
+      examinGradeName:
+        type: string
+      examinItemName:
+        type: string
+      examinSpeciesName:
+        type: string
+      examinUnitName:
+        type: string
+      graphData:
+        items:
+          $ref: '#/definitions/v2.retailPriceGraphData'
+        type: array
+      priceType:
+        type: string
+    type: object
+  v2.tradeInfoGraphData:
+    properties:
+      x:
+        type: string
+      "y":
+        type: string
+    type: object
+  v2.tradeInfoGraphLine:
+    properties:
+      graphData:
+        items:
+          $ref: '#/definitions/v2.tradeInfoGraphData'
+        type: array
+      hskPrdlstCode:
+        type: string
+      tradeType:
+        type: string
+    type: object
+  v2.wholePriceGraphData:
+    properties:
+      x:
+        type: string
+      "y":
+        type: integer
+    type: object
+  v2.wholePriceGraphLine:
+    properties:
+      examinGradeName:
+        type: string
+      examinItemName:
+        type: string
+      examinSpeciesName:
+        type: string
+      examinUnitName:
+        type: string
+      graphData:
+        items:
+          $ref: '#/definitions/v2.wholePriceGraphData'
+        type: array
+    type: object
+info:
+  contact: {}
+  description: 아그리파 API
+  license: {}
+  title: AGRIPA API
+  version: "1.0"
+paths:
+  /media/all-youtube:
+    get:
+      consumes:
+      - application/json
+      description: 모든 유튜브 영상 조회
+      parameters:
+      - description: 기준시간(YYYY-MM-DD HH:mm:ss)
+        in: query
+        name: baseDateTime
+        required: true
+        type: string
+      - description: '조회 시작 index(허용값: 최소 0)'
+        in: query
+        minimum: 0
+        name: start
+        type: integer
+      - description: '페이지 당 자료 수(허용값: 최소 0, 최대 50)'
+        in: query
+        maximum: 50
+        minimum: 0
+        name: countPerPage
+        type: integer
+      - description: 검색어(미입력 시 모든 유튜브 검색, 가락시장365만 보고 싶은 경우 '000공통000'입력)
+        in: query
+        name: query
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.AllYoutube'
+      summary: 모든 유튜브 영상 조회
+      tags:
+      - 미디어
+  /media/blog:
+    get:
+      consumes:
+      - application/json
+      description: 품목별 블로그 조회(기준시간으로부터 6개월까지만 조회 가능)
+      parameters:
+      - description: 품목코드
+        in: query
+        name: itemCode
+        required: true
+        type: integer
+      - description: 기준시간(YYYY-MM-DD HH:mm:ss)
+        in: query
+        name: baseDateTime
+        required: true
+        type: string
+      - description: '조회 시작 index(허용값: 최소 0)'
+        in: query
+        minimum: 0
+        name: start
+        type: integer
+      - description: '페이지 당 자료 수(허용값: 최소 0, 최대 50)'
+        in: query
+        maximum: 50
+        minimum: 0
+        name: countPerPage
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Blog'
+      summary: 품목별 블로그 조회(기준시간으로부터 6개월까지만 조회 가능)
+      tags:
+      - 미디어
+  /media/news:
+    get:
+      consumes:
+      - application/json
+      description: 품목별 뉴스 조회(기준시간으로부터 6개월까지만 조회 가능)
+      parameters:
+      - description: 품목코드
+        in: query
+        name: itemCode
+        required: true
+        type: integer
+      - description: 기준시간(YYYY-MM-DD HH:mm:ss)
+        in: query
+        name: baseDateTime
+        required: true
+        type: string
+      - description: '조회 시작 index(허용값: 최소 0)'
+        in: query
+        minimum: 0
+        name: start
+        type: integer
+      - description: '페이지 당 자료 수(허용값: 최소 0, 최대 50)'
+        in: query
+        maximum: 50
+        minimum: 0
+        name: countPerPage
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.News'
+      summary: 품목별 뉴스 조회(기준시간으로부터 6개월까지만 조회 가능)
+      tags:
+      - 미디어
+  /media/youtube:
+    get:
+      consumes:
+      - application/json
+      description: 품목별 유튜브 조회(기준시간으로부터 6개월까지만 조회 가능)
+      parameters:
+      - description: 품목코드
+        in: query
+        name: itemCode
+        required: true
+        type: integer
+      - description: 기준시간(YYYY-MM-DD HH:mm:ss)
+        in: query
+        name: baseDateTime
+        required: true
+        type: string
+      - description: '조회 시작 index(허용값: 최소 0)'
+        in: query
+        minimum: 0
+        name: start
+        type: integer
+      - description: '페이지 당 자료 수(허용값: 최소 0, 최대 50)'
+        in: query
+        maximum: 50
+        minimum: 0
+        name: countPerPage
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Youtube'
+      summary: 품목별 유튜브 조회(기준시간으로부터 6개월까지만 조회 가능)
+      tags:
+      - 미디어
+  /retail/category:
+    get:
+      consumes:
+      - application/json
+      description: 카테고리 정보를 조회합니다
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Category'
+      summary: 카테고리 정보 조회
+      tags:
+      - 소매
+  /retail/grade/{itemcode}/{kindcode}:
+    get:
+      consumes:
+      - application/json
+      description: 등급 정보를 조회합니다
+      parameters:
+      - description: 품목코드
+        in: path
+        name: itemcode
+        required: true
+        type: integer
+      - description: 품종코드
+        in: path
+        name: kindcode
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ItemGrade'
+      summary: 등급 정보 조회
+      tags:
+      - 소매
+  /retail/grade/{itemcode}/{kindcode}/{gradecode}:
+    get:
+      consumes:
+      - application/json
+      description: 지역 정보를 조회합니다
+      parameters:
+      - description: 품목코드
+        in: path
+        name: itemcode
+        required: true
+        type: integer
+      - description: 품종코드
+        in: path
+        name: kindcode
+        required: true
+        type: string
+      - description: 등급코드
+        in: path
+        name: gradecode
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ItemGrade'
+      summary: 지역 정보 조회
+      tags:
+      - 소매
+  /retail/item/{catecode}:
+    get:
+      consumes:
+      - application/json
+      description: 품목 정보를 조회합니다
+      parameters:
+      - description: 부류코드
+        in: path
+        name: catecode
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Item'
+      summary: 품목 정보 조회
+      tags:
+      - 소매
+  /retail/kind/{itemcode}:
+    get:
+      consumes:
+      - application/json
+      description: 품종 정보를 조회합니다
+      parameters:
+      - description: 품목코드
+        in: path
+        name: itemcode
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ItemKind'
+      summary: 품종 정보 조회
+      tags:
+      - 소매
+  /retail/price/graph/{itemcode}/{kindcode}/{gradecode}/{areaname}/{graphType}:
+    get:
+      consumes:
+      - application/json
+      description: 소매 가격 정보 - 그래프용
+      parameters:
+      - description: 품목코드
+        in: path
+        name: itemcode
+        required: true
+        type: integer
+      - description: 품종코드
+        in: path
+        name: kindcode
+        required: true
+        type: string
+      - description: 등급코드
+        in: path
+        name: gradecode
+        required: true
+        type: string
+      - description: 지역명
+        in: path
+        name: areaname
+        required: true
+        type: string
+      - description: 그래프타입(day,month,year)
+        in: path
+        name: graphType
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Graph'
+      summary: 소매 가격 정보(그래프용)
+      tags:
+      - 소매
+  /retail/price/month/{itemcode}/{kindcode}/{gradecode}/{areaname}:
+    get:
+      consumes:
+      - application/json
+      description: 소매 월 가격 정보를 조회합니다
+      parameters:
+      - description: 품목코드
+        in: path
+        name: itemcode
+        required: true
+        type: integer
+      - description: 품종코드
+        in: path
+        name: kindcode
+        required: true
+        type: string
+      - description: 등급코드
+        in: path
+        name: gradecode
+        required: true
+        type: string
+      - description: 지역명
+        in: path
+        name: areaname
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.RecentPrice'
+      summary: 소매 월 가격 정보 조회
+      tags:
+      - 소매
+  /retail/price/recent/{itemcode}/{kindcode}/{gradecode}/{areaname}:
+    get:
+      consumes:
+      - application/json
+      description: 소매 최근 가격 정보를 조회합니다
+      parameters:
+      - description: 품목코드
+        in: path
+        name: itemcode
+        required: true
+        type: integer
+      - description: 품종코드
+        in: path
+        name: kindcode
+        required: true
+        type: string
+      - description: 등급코드
+        in: path
+        name: gradecode
+        required: true
+        type: string
+      - description: 지역명
+        in: path
+        name: areaname
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.RecentPrice'
+      summary: 소매 최근 가격 정보 조회
+      tags:
+      - 소매
+  /v2/auction/adj/quantity/bar-graph/{std-item-code}:
+    get:
+      consumes:
+      - application/json
+      description: 정산 경락 거래량 바 차트 조회합니다
+      parameters:
+      - description: 표준품목코드
+        in: path
+        name: std-item-code
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v2.AdjAuctionQuantityBarGraph'
+      summary: 정산 경락 거래량 바 차트 조회
+      tags:
+      - v2 정산 경락 거래량
+  /v2/auction/adj/quantity/recent-top-3:
+    get:
+      consumes:
+      - application/json
+      description: 정산 경락 거래량 최근 TOP 3 조회합니다
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v2.AdjAuctionQuantityRecentTop3'
+      summary: 정산 경락 거래량 최근 TOP 3 조회
+      tags:
+      - v2 정산 경락 거래량
+  /v2/code/item-code-map:
+    get:
+      consumes:
+      - application/json
+      description: 품목코드 맵 조회합니다
+      parameters:
+      - description: 표준품목코드
+        in: query
+        name: stdItemCode
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v2.ItemCodeMap'
+      summary: 품목코드 맵 조회
+      tags:
+      - v2 코드
+  /v2/code/std-item-codes:
+    get:
+      consumes:
+      - application/json
+      description: 표준품목코드 키워드 조회합니다
+      parameters:
+      - description: 표준품목코드 검색어
+        in: query
+        name: query
+        required: true
+        type: string
+      - description: 'row 수(허용값: 최소 0, 최대 50)'
+        in: query
+        maximum: 50
+        minimum: 0
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v2.StdItemKeword'
+      summary: 표준품목코드 키워드 조회
+      tags:
+      - v2 코드
+  /v2/media/blog:
+    get:
+      consumes:
+      - application/json
+      description: 품목별 블로그 조회(기준시간으로부터 6개월까지만 조회 가능)
+      parameters:
+      - description: 표준품목코드
+        in: query
+        name: std-item-code
+        required: true
+        type: integer
+      - description: 기준시간(YYYY-MM-DD HH:mm:ss)
+        in: query
+        name: base-date-time
+        required: true
+        type: string
+      - description: '조회 시작 index(허용값: 최소 0)'
+        in: query
+        minimum: 0
+        name: start
+        type: integer
+      - description: '페이지 당 자료 수(허용값: 최소 0, 최대 50)'
+        in: query
+        maximum: 50
+        minimum: 0
+        name: count-per-page
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v2.Blog'
+      summary: 품목별 블로그 조회(기준시간으로부터 6개월까지만 조회 가능)
+      tags:
+      - v2 미디어
+  /v2/media/news:
+    get:
+      consumes:
+      - application/json
+      description: 품목별 뉴스 조회(기준시간으로부터 6개월까지만 조회 가능)
+      parameters:
+      - description: 표준품목코드
+        in: query
+        name: std-item-code
+        required: true
+        type: integer
+      - description: 기준시간(YYYY-MM-DD HH:mm:ss)
+        in: query
+        name: base-date-time
+        required: true
+        type: string
+      - description: '조회 시작 index(허용값: 최소 0)'
+        in: query
+        minimum: 0
+        name: start
+        type: integer
+      - description: '페이지 당 자료 수(허용값: 최소 0, 최대 50)'
+        in: query
+        maximum: 50
+        minimum: 0
+        name: count-per-page
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v2.News'
+      summary: 품목별 뉴스 조회(기준시간으로부터 6개월까지만 조회 가능)
+      tags:
+      - v2 미디어
+  /v2/media/youtube:
+    get:
+      consumes:
+      - application/json
+      description: 품목별 유튜브 조회(기준시간으로부터 6개월까지만 조회 가능)
+      parameters:
+      - description: 표준품목코드
+        in: query
+        name: std-item-code
+        required: true
+        type: integer
+      - description: 기준시간(YYYY-MM-DD HH:mm:ss)
+        in: query
+        name: base-date-time
+        required: true
+        type: string
+      - description: '조회 시작 index(허용값: 최소 0)'
+        in: query
+        minimum: 0
+        name: start
+        type: integer
+      - description: '페이지 당 자료 수(허용값: 최소 0, 최대 50)'
+        in: query
+        maximum: 50
+        minimum: 0
+        name: count-per-page
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v2.Youtube'
+      summary: 품목별 유튜브 조회(기준시간으로부터 6개월까지만 조회 가능)
+      tags:
+      - v2 미디어
+  /v2/question:
+    post:
+      consumes:
+      - application/json
+      description: 문의사항 삽입합니다
+      parameters:
+      - description: 문의사항
+        in: body
+        name: question
+        required: true
+        schema:
+          $ref: '#/definitions/v2.Question'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v2.Question'
+      summary: 문의사항 삽입
+      tags:
+      - v2 문의사항
+  /v2/retail/price/line-graph/{std-item-code}:
+    get:
+      consumes:
+      - application/json
+      description: 소매가격 꺾은선 그래프 정보 조회합니다
+      parameters:
+      - description: 표준품목코드
+        in: path
+        name: std-item-code
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v2.RetailPriceGraph'
+      summary: 소매가격 꺾은선 그래프 정보 조회
+      tags:
+      - v2 소매
+  /v2/retail/price/previous-year/{std-item-code}:
+    get:
+      consumes:
+      - application/json
+      description: 전년 소매가격 정보 조회합니다
+      parameters:
+      - description: 표준품목코드
+        in: path
+        name: std-item-code
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v2.RetailPrice'
+      summary: 전년 소매가격 정보 조회
+      tags:
+      - v2 소매
+  /v2/retail/price/recent/{std-item-code}:
+    get:
+      consumes:
+      - application/json
+      description: 최근 소매가격 정보 조회 조회합니다
+      parameters:
+      - description: 표준품목코드
+        in: path
+        name: std-item-code
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v2.RetailPrice'
+      summary: 최근 소매가격 정보 조회
+      tags:
+      - v2 소매
+  /v2/trade/exportation/line-graph/{std-item-code}:
+    get:
+      consumes:
+      - application/json
+      description: 수출 정보 조회합니다
+      parameters:
+      - description: 표준품목코드
+        in: path
+        name: std-item-code
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v2.TradeInfoGraph'
+      summary: 수출 정보 조회
+      tags:
+      - v2 수출입
+  /v2/trade/exportation/recent-top-3:
+    get:
+      consumes:
+      - application/json
+      description: 수출 최근 중량 TOP 3 정보 조회합니다
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v2.TradeRecentTop3'
+      summary: 수출 최근 중량 TOP 3 정보 조회
+      tags:
+      - v2 수출입
+  /v2/trade/importation/line-graph/{std-item-code}:
+    get:
+      consumes:
+      - application/json
+      description: 수입 정보 조회합니다
+      parameters:
+      - description: 표준품목코드
+        in: path
+        name: std-item-code
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v2.TradeInfoGraph'
+      summary: 수입 정보 조회
+      tags:
+      - v2 수출입
+  /v2/trade/importation/recent-top-3:
+    get:
+      consumes:
+      - application/json
+      description: 수입 최근 중량 TOP 3 정보 조회합니다
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v2.TradeRecentTop3'
+      summary: 수입 최근 중량 TOP 3 정보 조회
+      tags:
+      - v2 수출입
+  /v2/whole/price/line-graph/{std-item-code}:
+    get:
+      consumes:
+      - application/json
+      description: 도매가격 꺾은선 그래프 정보 조회합니다
+      parameters:
+      - description: 표준품목코드
+        in: path
+        name: std-item-code
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v2.WholePriceGraph'
+      summary: 도매가격 꺾은선 그래프 정보 조회
+      tags:
+      - v2 도매
+  /v2/whole/price/previous-year/{std-item-code}:
+    get:
+      consumes:
+      - application/json
+      description: 전년 도매가격 정보 조회합니다
+      parameters:
+      - description: 표준품목코드
+        in: path
+        name: std-item-code
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v2.WholePrice'
+      summary: 전년 도매가격 정보 조회
+      tags:
+      - v2 도매
+  /v2/whole/price/recent/{std-item-code}:
+    get:
+      consumes:
+      - application/json
+      description: 최근 도매가격 정보 조회 조회합니다
+      parameters:
+      - description: 표준품목코드
+        in: path
+        name: std-item-code
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v2.WholePrice'
+      summary: 최근 도매가격 정보 조회
+      tags:
+      - v2 도매
+  /whole/category:
+    get:
+      consumes:
+      - application/json
+      description: 카테고리 정보를 조회합니다
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Category'
+      summary: 카테고리 정보 조회
+      tags:
+      - 도매
+  /whole/grade/{itemcode}/{kindcode}:
+    get:
+      consumes:
+      - application/json
+      description: 등급 정보를 조회합니다
+      parameters:
+      - description: 품목코드
+        in: path
+        name: itemcode
+        required: true
+        type: integer
+      - description: 품종코드
+        in: path
+        name: kindcode
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ItemGrade'
+      summary: 등급 정보 조회
+      tags:
+      - 도매
+  /whole/item/{catecode}:
+    get:
+      consumes:
+      - application/json
+      description: 품목 정보를 조회합니다
+      parameters:
+      - description: 부류코드
+        in: path
+        name: catecode
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Item'
+      summary: 품목 정보 조회
+      tags:
+      - 도매
+  /whole/kind/{itemcode}:
+    get:
+      consumes:
+      - application/json
+      description: 품종 정보를 조회합니다
+      parameters:
+      - description: 품목코드
+        in: path
+        name: itemcode
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ItemKind'
+      summary: 품종 정보 조회
+      tags:
+      - 도매
+  /whole/price/graph/{itemcode}/{kindcode}/{gradecode}/{graphType}:
+    get:
+      consumes:
+      - application/json
+      description: 도매 가격 정보 - 그래프용
+      parameters:
+      - description: 품목코드
+        in: path
+        name: itemcode
+        required: true
+        type: integer
+      - description: 품종코드
+        in: path
+        name: kindcode
+        required: true
+        type: string
+      - description: 등급코드
+        in: path
+        name: gradecode
+        required: true
+        type: string
+      - description: 그래프타입(day,month,year)
+        in: path
+        name: graphType
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Graph'
+      summary: 도매 가격 정보(그래프용)
+      tags:
+      - 도매
+  /whole/price/month/{itemcode}/{kindcode}/{gradecode}:
+    get:
+      consumes:
+      - application/json
+      description: 도매 전월 기준 3년간 가격 정보를 조회합니다
+      parameters:
+      - description: 품목코드
+        in: path
+        name: itemcode
+        required: true
+        type: integer
+      - description: 품종코드
+        in: path
+        name: kindcode
+        required: true
+        type: string
+      - description: 등급코드
+        in: path
+        name: gradecode
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.MonthInfo'
+      summary: 도매 월 가격 정보 조회
+      tags:
+      - 도매
+  /whole/price/recent/{itemcode}/{kindcode}/{gradecode}:
+    get:
+      consumes:
+      - application/json
+      description: 도매 최근 가격 정보를 조회합니다
+      parameters:
+      - description: 품목코드
+        in: path
+        name: itemcode
+        required: true
+        type: integer
+      - description: 품종코드
+        in: path
+        name: kindcode
+        required: true
+        type: string
+      - description: 등급코드
+        in: path
+        name: gradecode
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.RecentPrice'
+      summary: 도매 최근 가격 정보 조회
+      tags:
+      - 도매
+swagger: "2.0"

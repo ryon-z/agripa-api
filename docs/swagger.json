@@ -1,0 +1,2301 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "아그리파 API",
+        "title": "AGRIPA API",
+        "contact": {},
+        "license": {},
+        "version": "1.0"
+    },
+    "paths": {
+        "/media/all-youtube": {
+            "get": {
+                "description": "모든 유튜브 영상 조회",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "미디어"
+                ],
+                "summary": "모든 유튜브 영상 조회",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "기준시간(YYYY-MM-DD HH:mm:ss)",
+                        "name": "baseDateTime",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "minimum": 0,
+                        "type": "integer",
+                        "description": "조회 시작 index(허용값: 최소 0)",
+                        "name": "start",
+                        "in": "query"
+                    },
+                    {
+                        "maximum": 50,
+                        "minimum": 0,
+                        "type": "integer",
+                        "description": "페이지 당 자료 수(허용값: 최소 0, 최대 50)",
+                        "name": "countPerPage",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "검색어(미입력 시 모든 유튜브 검색, 가락시장365만 보고 싶은 경우 '000공통000'입력)",
+                        "name": "query",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.AllYoutube"
+                        }
+                    }
+                }
+            }
+        },
+        "/media/blog": {
+            "get": {
+                "description": "품목별 블로그 조회(기준시간으로부터 6개월까지만 조회 가능)",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "미디어"
+                ],
+                "summary": "품목별 블로그 조회(기준시간으로부터 6개월까지만 조회 가능)",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "품목코드",
+                        "name": "itemCode",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "기준시간(YYYY-MM-DD HH:mm:ss)",
+                        "name": "baseDateTime",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "minimum": 0,
+                        "type": "integer",
+                        "description": "조회 시작 index(허용값: 최소 0)",
+                        "name": "start",
+                        "in": "query"
+                    },
+                    {
+                        "maximum": 50,
+                        "minimum": 0,
+                        "type": "integer",
+                        "description": "페이지 당 자료 수(허용값: 최소 0, 최대 50)",
+                        "name": "countPerPage",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Blog"
+                        }
+                    }
+                }
+            }
+        },
+        "/media/news": {
+            "get": {
+                "description": "품목별 뉴스 조회(기준시간으로부터 6개월까지만 조회 가능)",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "미디어"
+                ],
+                "summary": "품목별 뉴스 조회(기준시간으로부터 6개월까지만 조회 가능)",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "품목코드",
+                        "name": "itemCode",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "기준시간(YYYY-MM-DD HH:mm:ss)",
+                        "name": "baseDateTime",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "minimum": 0,
+                        "type": "integer",
+                        "description": "조회 시작 index(허용값: 최소 0)",
+                        "name": "start",
+                        "in": "query"
+                    },
+                    {
+                        "maximum": 50,
+                        "minimum": 0,
+                        "type": "integer",
+                        "description": "페이지 당 자료 수(허용값: 최소 0, 최대 50)",
+                        "name": "countPerPage",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.News"
+                        }
+                    }
+                }
+            }
+        },
+        "/media/youtube": {
+            "get": {
+                "description": "품목별 유튜브 조회(기준시간으로부터 6개월까지만 조회 가능)",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "미디어"
+                ],
+                "summary": "품목별 유튜브 조회(기준시간으로부터 6개월까지만 조회 가능)",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "품목코드",
+                        "name": "itemCode",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "기준시간(YYYY-MM-DD HH:mm:ss)",
+                        "name": "baseDateTime",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "minimum": 0,
+                        "type": "integer",
+                        "description": "조회 시작 index(허용값: 최소 0)",
+                        "name": "start",
+                        "in": "query"
+                    },
+                    {
+                        "maximum": 50,
+                        "minimum": 0,
+                        "type": "integer",
+                        "description": "페이지 당 자료 수(허용값: 최소 0, 최대 50)",
+                        "name": "countPerPage",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Youtube"
+                        }
+                    }
+                }
+            }
+        },
+        "/retail/category": {
+            "get": {
+                "description": "카테고리 정보를 조회합니다",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "소매"
+                ],
+                "summary": "카테고리 정보 조회",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Category"
+                        }
+                    }
+                }
+            }
+        },
+        "/retail/grade/{itemcode}/{kindcode}": {
+            "get": {
+                "description": "등급 정보를 조회합니다",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "소매"
+                ],
+                "summary": "등급 정보 조회",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "품목코드",
+                        "name": "itemcode",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "품종코드",
+                        "name": "kindcode",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ItemGrade"
+                        }
+                    }
+                }
+            }
+        },
+        "/retail/grade/{itemcode}/{kindcode}/{gradecode}": {
+            "get": {
+                "description": "지역 정보를 조회합니다",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "소매"
+                ],
+                "summary": "지역 정보 조회",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "품목코드",
+                        "name": "itemcode",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "품종코드",
+                        "name": "kindcode",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "등급코드",
+                        "name": "gradecode",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ItemGrade"
+                        }
+                    }
+                }
+            }
+        },
+        "/retail/item/{catecode}": {
+            "get": {
+                "description": "품목 정보를 조회합니다",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "소매"
+                ],
+                "summary": "품목 정보 조회",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "부류코드",
+                        "name": "catecode",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Item"
+                        }
+                    }
+                }
+            }
+        },
+        "/retail/kind/{itemcode}": {
+            "get": {
+                "description": "품종 정보를 조회합니다",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "소매"
+                ],
+                "summary": "품종 정보 조회",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "품목코드",
+                        "name": "itemcode",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ItemKind"
+                        }
+                    }
+                }
+            }
+        },
+        "/retail/price/graph/{itemcode}/{kindcode}/{gradecode}/{areaname}/{graphType}": {
+            "get": {
+                "description": "소매 가격 정보 - 그래프용",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "소매"
+                ],
+                "summary": "소매 가격 정보(그래프용)",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "품목코드",
+                        "name": "itemcode",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "품종코드",
+                        "name": "kindcode",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "등급코드",
+                        "name": "gradecode",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "지역명",
+                        "name": "areaname",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "그래프타입(day,month,year)",
+                        "name": "graphType",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Graph"
+                        }
+                    }
+                }
+            }
+        },
+        "/retail/price/month/{itemcode}/{kindcode}/{gradecode}/{areaname}": {
+            "get": {
+                "description": "소매 월 가격 정보를 조회합니다",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "소매"
+                ],
+                "summary": "소매 월 가격 정보 조회",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "품목코드",
+                        "name": "itemcode",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "품종코드",
+                        "name": "kindcode",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "등급코드",
+                        "name": "gradecode",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "지역명",
+                        "name": "areaname",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.RecentPrice"
+                        }
+                    }
+                }
+            }
+        },
+        "/retail/price/recent/{itemcode}/{kindcode}/{gradecode}/{areaname}": {
+            "get": {
+                "description": "소매 최근 가격 정보를 조회합니다",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "소매"
+                ],
+                "summary": "소매 최근 가격 정보 조회",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "품목코드",
+                        "name": "itemcode",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "품종코드",
+                        "name": "kindcode",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "등급코드",
+                        "name": "gradecode",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "지역명",
+                        "name": "areaname",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.RecentPrice"
+                        }
+                    }
+                }
+            }
+        },
+        "/v2/auction/adj/quantity/bar-graph/{std-item-code}": {
+            "get": {
+                "description": "정산 경락 거래량 바 차트 조회합니다",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "v2 정산 경락 거래량"
+                ],
+                "summary": "정산 경락 거래량 바 차트 조회",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "표준품목코드",
+                        "name": "std-item-code",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/v2.AdjAuctionQuantityBarGraph"
+                        }
+                    }
+                }
+            }
+        },
+        "/v2/auction/adj/quantity/recent-top-3": {
+            "get": {
+                "description": "정산 경락 거래량 최근 TOP 3 조회합니다",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "v2 정산 경락 거래량"
+                ],
+                "summary": "정산 경락 거래량 최근 TOP 3 조회",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/v2.AdjAuctionQuantityRecentTop3"
+                        }
+                    }
+                }
+            }
+        },
+        "/v2/code/item-code-map": {
+            "get": {
+                "description": "품목코드 맵 조회합니다",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "v2 코드"
+                ],
+                "summary": "품목코드 맵 조회",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "표준품목코드",
+                        "name": "stdItemCode",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/v2.ItemCodeMap"
+                        }
+                    }
+                }
+            }
+        },
+        "/v2/code/std-item-codes": {
+            "get": {
+                "description": "표준품목코드 키워드 조회합니다",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "v2 코드"
+                ],
+                "summary": "표준품목코드 키워드 조회",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "표준품목코드 검색어",
+                        "name": "query",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "maximum": 50,
+                        "minimum": 0,
+                        "type": "integer",
+                        "description": "row 수(허용값: 최소 0, 최대 50)",
+                        "name": "limit",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/v2.StdItemKeword"
+                        }
+                    }
+                }
+            }
+        },
+        "/v2/media/blog": {
+            "get": {
+                "description": "품목별 블로그 조회(기준시간으로부터 6개월까지만 조회 가능)",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "v2 미디어"
+                ],
+                "summary": "품목별 블로그 조회(기준시간으로부터 6개월까지만 조회 가능)",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "표준품목코드",
+                        "name": "std-item-code",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "기준시간(YYYY-MM-DD HH:mm:ss)",
+                        "name": "base-date-time",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "minimum": 0,
+                        "type": "integer",
+                        "description": "조회 시작 index(허용값: 최소 0)",
+                        "name": "start",
+                        "in": "query"
+                    },
+                    {
+                        "maximum": 50,
+                        "minimum": 0,
+                        "type": "integer",
+                        "description": "페이지 당 자료 수(허용값: 최소 0, 최대 50)",
+                        "name": "count-per-page",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/v2.Blog"
+                        }
+                    }
+                }
+            }
+        },
+        "/v2/media/news": {
+            "get": {
+                "description": "품목별 뉴스 조회(기준시간으로부터 6개월까지만 조회 가능)",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "v2 미디어"
+                ],
+                "summary": "품목별 뉴스 조회(기준시간으로부터 6개월까지만 조회 가능)",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "표준품목코드",
+                        "name": "std-item-code",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "기준시간(YYYY-MM-DD HH:mm:ss)",
+                        "name": "base-date-time",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "minimum": 0,
+                        "type": "integer",
+                        "description": "조회 시작 index(허용값: 최소 0)",
+                        "name": "start",
+                        "in": "query"
+                    },
+                    {
+                        "maximum": 50,
+                        "minimum": 0,
+                        "type": "integer",
+                        "description": "페이지 당 자료 수(허용값: 최소 0, 최대 50)",
+                        "name": "count-per-page",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/v2.News"
+                        }
+                    }
+                }
+            }
+        },
+        "/v2/media/youtube": {
+            "get": {
+                "description": "품목별 유튜브 조회(기준시간으로부터 6개월까지만 조회 가능)",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "v2 미디어"
+                ],
+                "summary": "품목별 유튜브 조회(기준시간으로부터 6개월까지만 조회 가능)",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "표준품목코드",
+                        "name": "std-item-code",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "기준시간(YYYY-MM-DD HH:mm:ss)",
+                        "name": "base-date-time",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "minimum": 0,
+                        "type": "integer",
+                        "description": "조회 시작 index(허용값: 최소 0)",
+                        "name": "start",
+                        "in": "query"
+                    },
+                    {
+                        "maximum": 50,
+                        "minimum": 0,
+                        "type": "integer",
+                        "description": "페이지 당 자료 수(허용값: 최소 0, 최대 50)",
+                        "name": "count-per-page",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/v2.Youtube"
+                        }
+                    }
+                }
+            }
+        },
+        "/v2/question": {
+            "post": {
+                "description": "문의사항 삽입합니다",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "v2 문의사항"
+                ],
+                "summary": "문의사항 삽입",
+                "parameters": [
+                    {
+                        "description": "문의사항",
+                        "name": "question",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/v2.Question"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/v2.Question"
+                        }
+                    }
+                }
+            }
+        },
+        "/v2/retail/price/line-graph/{std-item-code}": {
+            "get": {
+                "description": "소매가격 꺾은선 그래프 정보 조회합니다",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "v2 소매"
+                ],
+                "summary": "소매가격 꺾은선 그래프 정보 조회",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "표준품목코드",
+                        "name": "std-item-code",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/v2.RetailPriceGraph"
+                        }
+                    }
+                }
+            }
+        },
+        "/v2/retail/price/previous-year/{std-item-code}": {
+            "get": {
+                "description": "전년 소매가격 정보 조회합니다",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "v2 소매"
+                ],
+                "summary": "전년 소매가격 정보 조회",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "표준품목코드",
+                        "name": "std-item-code",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/v2.RetailPrice"
+                        }
+                    }
+                }
+            }
+        },
+        "/v2/retail/price/recent/{std-item-code}": {
+            "get": {
+                "description": "최근 소매가격 정보 조회 조회합니다",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "v2 소매"
+                ],
+                "summary": "최근 소매가격 정보 조회",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "표준품목코드",
+                        "name": "std-item-code",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/v2.RetailPrice"
+                        }
+                    }
+                }
+            }
+        },
+        "/v2/trade/exportation/line-graph/{std-item-code}": {
+            "get": {
+                "description": "수출 정보 조회합니다",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "v2 수출입"
+                ],
+                "summary": "수출 정보 조회",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "표준품목코드",
+                        "name": "std-item-code",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/v2.TradeInfoGraph"
+                        }
+                    }
+                }
+            }
+        },
+        "/v2/trade/exportation/recent-top-3": {
+            "get": {
+                "description": "수출 최근 중량 TOP 3 정보 조회합니다",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "v2 수출입"
+                ],
+                "summary": "수출 최근 중량 TOP 3 정보 조회",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/v2.TradeRecentTop3"
+                        }
+                    }
+                }
+            }
+        },
+        "/v2/trade/importation/line-graph/{std-item-code}": {
+            "get": {
+                "description": "수입 정보 조회합니다",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "v2 수출입"
+                ],
+                "summary": "수입 정보 조회",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "표준품목코드",
+                        "name": "std-item-code",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/v2.TradeInfoGraph"
+                        }
+                    }
+                }
+            }
+        },
+        "/v2/trade/importation/recent-top-3": {
+            "get": {
+                "description": "수입 최근 중량 TOP 3 정보 조회합니다",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "v2 수출입"
+                ],
+                "summary": "수입 최근 중량 TOP 3 정보 조회",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/v2.TradeRecentTop3"
+                        }
+                    }
+                }
+            }
+        },
+        "/v2/whole/price/line-graph/{std-item-code}": {
+            "get": {
+                "description": "도매가격 꺾은선 그래프 정보 조회합니다",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "v2 도매"
+                ],
+                "summary": "도매가격 꺾은선 그래프 정보 조회",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "표준품목코드",
+                        "name": "std-item-code",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/v2.WholePriceGraph"
+                        }
+                    }
+                }
+            }
+        },
+        "/v2/whole/price/previous-year/{std-item-code}": {
+            "get": {
+                "description": "전년 도매가격 정보 조회합니다",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "v2 도매"
+                ],
+                "summary": "전년 도매가격 정보 조회",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "표준품목코드",
+                        "name": "std-item-code",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/v2.WholePrice"
+                        }
+                    }
+                }
+            }
+        },
+        "/v2/whole/price/recent/{std-item-code}": {
+            "get": {
+                "description": "최근 도매가격 정보 조회 조회합니다",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "v2 도매"
+                ],
+                "summary": "최근 도매가격 정보 조회",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "표준품목코드",
+                        "name": "std-item-code",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/v2.WholePrice"
+                        }
+                    }
+                }
+            }
+        },
+        "/whole/category": {
+            "get": {
+                "description": "카테고리 정보를 조회합니다",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "도매"
+                ],
+                "summary": "카테고리 정보 조회",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Category"
+                        }
+                    }
+                }
+            }
+        },
+        "/whole/grade/{itemcode}/{kindcode}": {
+            "get": {
+                "description": "등급 정보를 조회합니다",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "도매"
+                ],
+                "summary": "등급 정보 조회",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "품목코드",
+                        "name": "itemcode",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "품종코드",
+                        "name": "kindcode",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ItemGrade"
+                        }
+                    }
+                }
+            }
+        },
+        "/whole/item/{catecode}": {
+            "get": {
+                "description": "품목 정보를 조회합니다",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "도매"
+                ],
+                "summary": "품목 정보 조회",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "부류코드",
+                        "name": "catecode",
+                        "in": "path"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Item"
+                        }
+                    }
+                }
+            }
+        },
+        "/whole/kind/{itemcode}": {
+            "get": {
+                "description": "품종 정보를 조회합니다",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "도매"
+                ],
+                "summary": "품종 정보 조회",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "품목코드",
+                        "name": "itemcode",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ItemKind"
+                        }
+                    }
+                }
+            }
+        },
+        "/whole/price/graph/{itemcode}/{kindcode}/{gradecode}/{graphType}": {
+            "get": {
+                "description": "도매 가격 정보 - 그래프용",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "도매"
+                ],
+                "summary": "도매 가격 정보(그래프용)",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "품목코드",
+                        "name": "itemcode",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "품종코드",
+                        "name": "kindcode",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "등급코드",
+                        "name": "gradecode",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "그래프타입(day,month,year)",
+                        "name": "graphType",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Graph"
+                        }
+                    }
+                }
+            }
+        },
+        "/whole/price/month/{itemcode}/{kindcode}/{gradecode}": {
+            "get": {
+                "description": "도매 전월 기준 3년간 가격 정보를 조회합니다",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "도매"
+                ],
+                "summary": "도매 월 가격 정보 조회",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "품목코드",
+                        "name": "itemcode",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "품종코드",
+                        "name": "kindcode",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "등급코드",
+                        "name": "gradecode",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.MonthInfo"
+                        }
+                    }
+                }
+            }
+        },
+        "/whole/price/recent/{itemcode}/{kindcode}/{gradecode}": {
+            "get": {
+                "description": "도매 최근 가격 정보를 조회합니다",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "도매"
+                ],
+                "summary": "도매 최근 가격 정보 조회",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "품목코드",
+                        "name": "itemcode",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "품종코드",
+                        "name": "kindcode",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "등급코드",
+                        "name": "gradecode",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.RecentPrice"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.AllYoutube": {
+            "type": "object",
+            "properties": {
+                "channelID": {
+                    "type": "string"
+                },
+                "channelTitle": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "isDisplay": {
+                    "type": "integer"
+                },
+                "publishedAt": {
+                    "type": "string"
+                },
+                "query": {
+                    "type": "string"
+                },
+                "thumbnailURL": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "videoID": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Blog": {
+            "type": "object",
+            "properties": {
+                "bloggerlink": {
+                    "type": "string"
+                },
+                "bloggername": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "isDisplay": {
+                    "type": "integer"
+                },
+                "itemCode": {
+                    "type": "string"
+                },
+                "link": {
+                    "type": "string"
+                },
+                "postdate": {
+                    "type": "string"
+                },
+                "priority": {
+                    "type": "integer"
+                },
+                "query": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Category": {
+            "type": "object",
+            "properties": {
+                "cateCode": {
+                    "type": "integer"
+                },
+                "cateName": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Graph": {
+            "type": "object",
+            "properties": {
+                "areaName": {
+                    "type": "string"
+                },
+                "gradeCode": {
+                    "type": "string"
+                },
+                "graphLine": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.GraphLine"
+                    }
+                },
+                "itemCode": {
+                    "type": "integer"
+                },
+                "itemKindCode": {
+                    "type": "string"
+                },
+                "lastShipDate": {
+                    "type": "string"
+                },
+                "rangeLabel": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "rangeMax": {
+                    "type": "integer"
+                },
+                "rangeMin": {
+                    "type": "integer"
+                },
+                "rangeStep": {
+                    "type": "integer"
+                },
+                "rangeType": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.GraphData": {
+            "type": "object",
+            "properties": {
+                "x": {
+                    "type": "string"
+                },
+                "y": {
+                    "type": "number"
+                }
+            }
+        },
+        "models.GraphLine": {
+            "type": "object",
+            "properties": {
+                "areaName": {
+                    "type": "string"
+                },
+                "graphData": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.GraphData"
+                    }
+                },
+                "marketName": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Item": {
+            "type": "object",
+            "properties": {
+                "itemCode": {
+                    "type": "integer"
+                },
+                "itemName": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.ItemGrade": {
+            "type": "object",
+            "properties": {
+                "gradeCode": {
+                    "type": "string"
+                },
+                "gradeName": {
+                    "type": "string"
+                },
+                "gradeOrder": {
+                    "type": "integer"
+                },
+                "gradeType": {
+                    "type": "integer"
+                },
+                "shipAmt": {
+                    "type": "number"
+                },
+                "shipUnit": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.ItemKind": {
+            "type": "object",
+            "properties": {
+                "itemCode": {
+                    "type": "integer"
+                },
+                "itemKindCode": {
+                    "type": "string"
+                },
+                "itemKindName": {
+                    "type": "string"
+                },
+                "itemName": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.MonthInfo": {
+            "type": "object",
+            "properties": {
+                "areaName": {
+                    "type": "string"
+                },
+                "baseMonth": {
+                    "type": "string"
+                },
+                "gradeCode": {
+                    "type": "string"
+                },
+                "itemCode": {
+                    "type": "integer"
+                },
+                "itemKindCode": {
+                    "type": "string"
+                },
+                "marketName": {
+                    "type": "string"
+                },
+                "monthPriceList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.MonthPrice"
+                    }
+                },
+                "shipMonth": {
+                    "type": "integer"
+                },
+                "shipYear": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.MonthPrice": {
+            "type": "object",
+            "properties": {
+                "avgPrice": {
+                    "type": "number"
+                },
+                "baseMonth": {
+                    "type": "string"
+                },
+                "maxPrice": {
+                    "type": "integer"
+                },
+                "maxShipDate": {
+                    "type": "string"
+                },
+                "minPrice": {
+                    "type": "integer"
+                },
+                "minShipDate": {
+                    "type": "string"
+                },
+                "priceCount": {
+                    "type": "integer"
+                },
+                "sumPrice": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.News": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "isDisplay": {
+                    "type": "integer"
+                },
+                "itemCode": {
+                    "type": "string"
+                },
+                "link": {
+                    "type": "string"
+                },
+                "press": {
+                    "type": "string"
+                },
+                "priority": {
+                    "type": "integer"
+                },
+                "pubDate": {
+                    "type": "string"
+                },
+                "query": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.RecentPrice": {
+            "type": "object",
+            "properties": {
+                "areaName": {
+                    "type": "string"
+                },
+                "gradeCode": {
+                    "type": "string"
+                },
+                "itemCode": {
+                    "type": "integer"
+                },
+                "itemKindCode": {
+                    "type": "string"
+                },
+                "lastPrice": {
+                    "type": "integer"
+                },
+                "lastShipDate": {
+                    "type": "string"
+                },
+                "marketName": {
+                    "type": "string"
+                },
+                "stat30days": {
+                    "type": "object",
+                    "$ref": "#/definitions/models.StatPrice"
+                },
+                "stat7days": {
+                    "type": "object",
+                    "$ref": "#/definitions/models.StatPrice"
+                }
+            }
+        },
+        "models.StatPrice": {
+            "type": "object",
+            "properties": {
+                "avgPrice": {
+                    "type": "number"
+                },
+                "cntPrice": {
+                    "type": "integer"
+                },
+                "days": {
+                    "type": "integer"
+                },
+                "maxPrice": {
+                    "type": "integer"
+                },
+                "minPrice": {
+                    "type": "integer"
+                },
+                "sumPrice": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.Youtube": {
+            "type": "object",
+            "properties": {
+                "channelID": {
+                    "type": "string"
+                },
+                "channelTitle": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "isDisplay": {
+                    "type": "integer"
+                },
+                "itemCode": {
+                    "type": "string"
+                },
+                "publishedAt": {
+                    "type": "string"
+                },
+                "query": {
+                    "type": "string"
+                },
+                "thumbnailURL": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "videoID": {
+                    "type": "string"
+                }
+            }
+        },
+        "v2.AdjAuctionQuantityBarGraph": {
+            "type": "object",
+            "properties": {
+                "graphBar": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/v2.adjAuctionQuantityGraphBar"
+                    }
+                },
+                "rangeLabel": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "stdItemCode": {
+                    "type": "string"
+                }
+            }
+        },
+        "v2.AdjAuctionQuantityRecentTop3": {
+            "type": "object",
+            "properties": {
+                "accQy": {
+                    "type": "string"
+                },
+                "auctionDate": {
+                    "type": "string"
+                },
+                "stdItemCode": {
+                    "type": "string"
+                },
+                "stdItemName": {
+                    "type": "string"
+                }
+            }
+        },
+        "v2.Blog": {
+            "type": "object",
+            "properties": {
+                "bloggerlink": {
+                    "type": "string"
+                },
+                "bloggername": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "isDisplay": {
+                    "type": "integer"
+                },
+                "itemCode": {
+                    "type": "string"
+                },
+                "link": {
+                    "type": "string"
+                },
+                "postdate": {
+                    "type": "string"
+                },
+                "priority": {
+                    "type": "integer"
+                },
+                "query": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                }
+            }
+        },
+        "v2.ItemCodeMap": {
+            "type": "object",
+            "properties": {
+                "examinItemCode": {
+                    "type": "string"
+                },
+                "hskPrdlstCode": {
+                    "type": "string"
+                },
+                "stdItemCode": {
+                    "type": "string"
+                }
+            }
+        },
+        "v2.News": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "isDisplay": {
+                    "type": "integer"
+                },
+                "itemCode": {
+                    "type": "string"
+                },
+                "link": {
+                    "type": "string"
+                },
+                "press": {
+                    "type": "string"
+                },
+                "priority": {
+                    "type": "integer"
+                },
+                "pubDate": {
+                    "type": "string"
+                },
+                "query": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                }
+            }
+        },
+        "v2.Question": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "question": {
+                    "type": "string"
+                },
+                "regiDate": {
+                    "type": "string"
+                }
+            }
+        },
+        "v2.RetailPrice": {
+            "type": "object",
+            "properties": {
+                "examinDate": {
+                    "type": "string"
+                },
+                "examinGradeCode": {
+                    "type": "string"
+                },
+                "examinGradeName": {
+                    "type": "string"
+                },
+                "examinItemCode": {
+                    "type": "string"
+                },
+                "examinItemName": {
+                    "type": "string"
+                },
+                "examinSpeciesCode": {
+                    "type": "string"
+                },
+                "examinSpeciesName": {
+                    "type": "string"
+                },
+                "examinUnit": {
+                    "type": "string"
+                },
+                "examinUnitName": {
+                    "type": "string"
+                },
+                "maxPrice": {
+                    "type": "integer"
+                },
+                "minPrice": {
+                    "type": "integer"
+                }
+            }
+        },
+        "v2.RetailPriceGraph": {
+            "type": "object",
+            "properties": {
+                "graphLine": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/v2.retailPriceGraphLine"
+                    }
+                },
+                "rangeLabel": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "stdItemCode": {
+                    "type": "string"
+                }
+            }
+        },
+        "v2.StdItemKeword": {
+            "type": "object",
+            "properties": {
+                "itemCode": {
+                    "type": "string"
+                },
+                "keyword": {
+                    "type": "string"
+                }
+            }
+        },
+        "v2.TradeInfoGraph": {
+            "type": "object",
+            "properties": {
+                "graphLine": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/v2.tradeInfoGraphLine"
+                    }
+                },
+                "rangeLabel": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "stdItemCode": {
+                    "type": "string"
+                }
+            }
+        },
+        "v2.TradeRecentTop3": {
+            "type": "object",
+            "properties": {
+                "baseDate": {
+                    "type": "string"
+                },
+                "convertedWeight": {
+                    "type": "string"
+                },
+                "hskPrdlstCode": {
+                    "type": "string"
+                },
+                "stdItemCode": {
+                    "type": "string"
+                },
+                "stdItemName": {
+                    "type": "string"
+                }
+            }
+        },
+        "v2.WholePrice": {
+            "type": "object",
+            "properties": {
+                "examinDate": {
+                    "type": "string"
+                },
+                "examinGradeCode": {
+                    "type": "string"
+                },
+                "examinGradeName": {
+                    "type": "string"
+                },
+                "examinItemCode": {
+                    "type": "string"
+                },
+                "examinItemName": {
+                    "type": "string"
+                },
+                "examinSpeciesCode": {
+                    "type": "string"
+                },
+                "examinSpeciesName": {
+                    "type": "string"
+                },
+                "examinUnit": {
+                    "type": "string"
+                },
+                "examinUnitName": {
+                    "type": "string"
+                },
+                "price": {
+                    "type": "integer"
+                }
+            }
+        },
+        "v2.WholePriceGraph": {
+            "type": "object",
+            "properties": {
+                "graphLine": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/v2.wholePriceGraphLine"
+                    }
+                },
+                "rangeLabel": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "stdItemCode": {
+                    "type": "string"
+                }
+            }
+        },
+        "v2.Youtube": {
+            "type": "object",
+            "properties": {
+                "channelID": {
+                    "type": "string"
+                },
+                "channelTitle": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "isDisplay": {
+                    "type": "integer"
+                },
+                "itemCode": {
+                    "type": "string"
+                },
+                "publishedAt": {
+                    "type": "string"
+                },
+                "query": {
+                    "type": "string"
+                },
+                "thumbnailURL": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "videoID": {
+                    "type": "string"
+                }
+            }
+        },
+        "v2.adjAuctionQuantityGraphBar": {
+            "type": "object",
+            "properties": {
+                "graphData": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "stdItemName": {
+                    "type": "string"
+                },
+                "stdSpeciesName": {
+                    "type": "string"
+                }
+            }
+        },
+        "v2.retailPriceGraphData": {
+            "type": "object",
+            "properties": {
+                "x": {
+                    "type": "string"
+                },
+                "y": {
+                    "type": "integer"
+                }
+            }
+        },
+        "v2.retailPriceGraphLine": {
+            "type": "object",
+            "properties": {
+                "examinGradeName": {
+                    "type": "string"
+                },
+                "examinItemName": {
+                    "type": "string"
+                },
+                "examinSpeciesName": {
+                    "type": "string"
+                },
+                "examinUnitName": {
+                    "type": "string"
+                },
+                "graphData": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/v2.retailPriceGraphData"
+                    }
+                },
+                "priceType": {
+                    "type": "string"
+                }
+            }
+        },
+        "v2.tradeInfoGraphData": {
+            "type": "object",
+            "properties": {
+                "x": {
+                    "type": "string"
+                },
+                "y": {
+                    "type": "string"
+                }
+            }
+        },
+        "v2.tradeInfoGraphLine": {
+            "type": "object",
+            "properties": {
+                "graphData": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/v2.tradeInfoGraphData"
+                    }
+                },
+                "hskPrdlstCode": {
+                    "type": "string"
+                },
+                "tradeType": {
+                    "type": "string"
+                }
+            }
+        },
+        "v2.wholePriceGraphData": {
+            "type": "object",
+            "properties": {
+                "x": {
+                    "type": "string"
+                },
+                "y": {
+                    "type": "integer"
+                }
+            }
+        },
+        "v2.wholePriceGraphLine": {
+            "type": "object",
+            "properties": {
+                "examinGradeName": {
+                    "type": "string"
+                },
+                "examinItemName": {
+                    "type": "string"
+                },
+                "examinSpeciesName": {
+                    "type": "string"
+                },
+                "examinUnitName": {
+                    "type": "string"
+                },
+                "graphData": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/v2.wholePriceGraphData"
+                    }
+                }
+            }
+        }
+    }
+}
